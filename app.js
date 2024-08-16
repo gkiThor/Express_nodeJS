@@ -4,29 +4,31 @@ const app = express();
 
 
 //Route et middleware
+//Page d'accueil
 app.get("/",(req,res)=>{
-    console.log("Get");
-    res.send("GET");
+    console.log("Accueil");
+    res.send("<h1>Page d'accueil de l'application</h1>");
 })
 
-app.get("/contact",(req,res)=>{
-    console.log("Contact");
-    res.send("Contact");
+// Opérations CRUD sur les clients
+app.get("/client/voir",(req,res)=>{
+    console.log("Voir");
+    res.send("<h1>Voir les informations du client</h1>");
 })
 
-app.post("/envoyer",(req,res)=>{
-    console.log("envoyer");
-    res.send("envoyer");
+app.post("/client/ajouter",(req,res)=>{
+    console.log("Ajouter");
+    res.send("<h1>Ajouter un nouveau client</h1>");
 })
 
-app.put("/modifier",(req,res)=>{
+app.put("/client/modifier",(req,res)=>{
     console.log("Modifier");
-    res.send("Modifier");
+    res.send("<h1>Modifier un client</h1>");
 })
 
-app.delete("/supprimer",(req,res)=>{
+app.delete("/client/supprimer",(req,res)=>{
     console.log("Supprimer");
-    res.send("Supprimer");
+    res.send("<h1>Supprimer un client</h1>");
 })
 
 app.listen(3000,()=>{
