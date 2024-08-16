@@ -1,15 +1,10 @@
 const express = require("express"); //on importe express
-
+const home = require("./routes/home"); //on inclut le fichier home.js
 const app = express();
 
+app.use(home)//on invoque l'instance app
 
 //Route et middleware
-//Page d'accueil
-app.get("/",(req,res)=>{
-    console.log("Accueil");
-    res.send("<h1>Page d'accueil de l'application</h1>");
-})
-
 // Opérations CRUD sur les clients
 app.get("/client/voir",(req,res)=>{
     console.log("Voir");
