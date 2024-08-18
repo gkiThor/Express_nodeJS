@@ -6,7 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Titre H1</h1>
-    <div>Balise div</div>
+    <%- include("header") -%>
+    <h1 style="color: blueviolet">Page d'accueil</h1>
+    <% ob.nom.forEach(x=>{ %>
+    <h2><%= ob.salutation + " " + x %></h2>
+    <% }) %>
 </body>
 </html>
