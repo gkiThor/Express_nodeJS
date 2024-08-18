@@ -6,6 +6,19 @@ const app = express();
 app.use(home);//on invoque l'instance app
 app.use("/client",client);//Module client est prefixe par /client
 
+app.set("views","./views");//on indique les vues
+app.set("view engine","ejs");//on indique le moteur de template
+
+app.get("/index",(req,res)=>{
+    d = new Date();
+    slt = d.getHours()<17?"Bonjour":"Bonsoir";
+    ob = {
+        nom:["a","b","c","d"],
+        salutation:slt
+    }
+
+    res.render("index");
+})
 
 app.get("/test",(req,res)=>{
     //res.send("<h1>Titre H1</1>");
