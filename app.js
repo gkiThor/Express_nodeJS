@@ -3,11 +3,17 @@ const home = require("./routes/home"); //on inclut le fichier home.js
 const client = require("./routes/client");
 const app = express();
 
-app.use(home);//on invoque l'instance app
+//app.use(home);//on invoque l'instance app
 app.use("/client",client);//Module client est prefixe par /client
 
 app.set("views","./views");//on indique les vues
 app.set("view engine","ejs");//on indique le moteur de template
+
+app.use("/files",express.static("public"));
+
+app.get("/",(req,res)=>{
+    res.render("home");
+})
 
 app.get("/index",(req,res)=>{
     d = new Date();
